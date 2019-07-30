@@ -6,7 +6,7 @@ rgss_main do
   Font.default_size = 22
   Graphics.resize_screen(640,480)
   Graphics.freeze 
-  $scene = Scene_Title.new
-  $scene.main while $scene
-  Graphics.transition(20)
+  # $scene = Scene_Title.new
+  # $scene.main while $scene
+  # Graphics.transition(20)
 end
