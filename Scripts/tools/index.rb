@@ -1,0 +1,1 @@
+require("./Scripts/tools/lambda_call.rb");
