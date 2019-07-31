@@ -1,5 +1,5 @@
 #encoding:utf-8
-require("./Scripts/index.rb");
+import("./test.rb")
 rgss_main do
   Font.default_name = (["黑体"])
   Font.default_outline = false
