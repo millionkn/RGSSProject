@@ -4,7 +4,6 @@
 # Update: 2017-09-08
 # ScriptNorm: No
 # Description: Affichage des tiles sur la map
-export("Nuri")
 class Tilemap
 	attr_accessor :tileset, :autotiles, :map_data, :priorities, :ox, :oy
   attr_reader :viewport, :disposed
