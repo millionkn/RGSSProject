@@ -17,6 +17,7 @@ module Kernel
         end)
       )
       raise(LoadError,"loop import",_caller) if cache.has_key?(file) && cache[file] == loading
+      raise(LoadError,"#{file}不存在",_caller) unless File.exist?(file)
       cache[file] = loading
       require(file)
       cache[file] = nil if cache[file]==loading
