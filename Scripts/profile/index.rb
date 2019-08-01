@@ -16,7 +16,7 @@ module Kernel
           return sum
         end)
       )
-      raise("loop import") if cache.has_key?(file) && cache[file] == loading
+      raise(LoadError,"loop import",_caller) if cache.has_key?(file) && cache[file] == loading
       cache[file] = loading
       require(file)
       cache[file] = nil if cache[file]==loading
