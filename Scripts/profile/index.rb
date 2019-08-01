@@ -30,4 +30,3 @@ end
 import("./inner.rb")
 import("./view.rb")
 import("./Nuri Yuri's Tilemap.rb")
-import("lambda_call.rb")

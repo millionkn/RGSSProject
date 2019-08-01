@@ -1,6 +1,7 @@
+import("../redefine/lambda_call.rb")
 eventLoop = []
 empty = lambda{}
-Promise = Class.new do
+promise = Class.new do
   define_method(:initialize) do |callback|
     @resolve = proc{|arr|proc{|callback|arr.push(callback)}}.call(resolve_arr = [])
     @reject = proc{|arr|proc{|callback|arr.push(callback)}}.call(reject_arr = [])
@@ -43,3 +44,4 @@ Graphics.module_eval do
     cb.call while cb = eventLoop.shift
   end
 end
+export(promise)
