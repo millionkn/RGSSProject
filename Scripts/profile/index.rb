@@ -3,12 +3,16 @@ module Kernel
     cache = Hash.new
     cache[__FILE__] = loading = Object.new
     define_method(:import) do |relative_path|
+      _caller = caller(1)
       file = File.join(
-        File.dirname(caller[0].scan(/(.+):[0-9]+:/)[0][0]),
-        *relative_path.split(File::Separator).inject([],&lambda do |sum,part|
+        *relative_path
+        .split(File::Separator)
+        .inject(
+          File.dirname(caller[0].scan(/(.+):[0-9]+:/)[0][0]).split(File::Separator),
+          &lambda do |sum,part|
           return sum if part == "."
           return sum.push(part) unless part == ".."
-          raise("无效路径") unless sum.shift
+          raise(LoadError,"无效路径",_caller) unless sum.pop()
           return sum
         end)
       )
